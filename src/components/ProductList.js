@@ -1,8 +1,9 @@
+import { useEffect, useState } from "react";
 import Product from "./Product";
 
 const ProductList = () =>{
 
-    const products = [{
+    const productslist = [{
         "id": 1,
         "title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
         "price": 109.95,
@@ -38,6 +39,17 @@ const ProductList = () =>{
             "count": 500
         }
     }]
+
+    const [products,setProducts] = useState([]);
+
+    useEffect(()=>{
+        fetch('https://fakestoreapi.com/products/category/jewelery')
+            .then(res=>res.json())
+            .then(json=>{
+                console.log(json);
+                setProducts(json);
+        })
+    },[])
     return <div className='products'> {products.map((product) => (
         <Product product={product} key = {product.id}/>
     ))}

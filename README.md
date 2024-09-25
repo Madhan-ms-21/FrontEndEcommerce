@@ -31,3 +31,7 @@ We have used fake store Api products as a datasource for the products
 
 ### Making a Progressive Web App
 
+Link: 
+https://web.dev/learn/css/
+https://react.dev/reference/react/Component#setstate
+https://react.dev/reference/react/Component#setstate

@@ -45,3 +45,11 @@
   flex-direction: column;
   padding: 1rem;
 }
+
+.title {
+  max-width:200px;
+  white-space: nowrap;
+  /* height:60px; */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
