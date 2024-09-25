@@ -5,7 +5,7 @@ import ProductList from './components/ProductList';
 import { useState } from "react";
 
 function App() {
-  const [selectedCategory,setSelectedCategory] = useState('');
+  const [selectedCategory,setSelectedCategory] = useState();
   return (
     <div className="App">
         <Header 
