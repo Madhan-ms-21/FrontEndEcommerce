@@ -1,8 +1,8 @@
 import {useEffect , useState} from 'react'
 
-const Header = () =>{
+const Header = ({selectedCategory,setSelectedCategory}) =>{
 
-    const [categories,setCategories] = useState([])
+    const [categories,setCategories] = useState([]);
 
     // const categories = ["electronics" , 'jewelery' , 'mens clothing' , 'womens clothing']
 
@@ -16,11 +16,20 @@ const Header = () =>{
     }, []);
     
     return (
-    <div className = 'header-items'> {
-        categories.map((category) => (
-            <div className='header-item'> {category} </div>
+        <div className="header-items">
+        {categories.map((catgeory) => (
+          <div
+            className={
+              "header-item " +
+              (catgeory === selectedCategory ? "header-item-selected" : "")
+            }
+            onClick={() => setSelectedCategory(catgeory)}
+            key={catgeory}
+          >
+            {catgeory}
+          </div>
         ))}
-    </div>)
+      </div>)
 
 }
 
