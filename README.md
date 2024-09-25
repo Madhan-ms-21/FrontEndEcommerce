@@ -1,9 +1,10 @@
-=======
-# Getting Started with Create React App
+
+# Introduction
 
 This project is used to create a FrontEnd for an Ecommerce Application  
 
-## Available Scripts
+## Requirements
+We have used fake store Api products as a datasource for the products
 
 ### `npm test`
 
@@ -30,5 +31,3 @@ This project is used to create a FrontEnd for an Ecommerce Application
 
 ### Making a Progressive Web App
 
-
->>>>>>> master
