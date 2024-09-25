@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Product from "./Product";
-
+import useApi from "../hooks/useApi";
 const ProductList = ({selectedCategory}) =>{
 
     // const productslist = [{
@@ -41,18 +41,26 @@ const ProductList = ({selectedCategory}) =>{
     // }]
 
     const [products,setProducts] = useState([]);
+    // const [loading,setLoading] = useState(false);
 
-    useEffect(()=>{
-        fetch(`https://fakestoreapi.com/products/category/${selectedCategory}`)
-            .then(res=>res.json())
-            .then(json=>{
-                console.log(json);
-                setProducts(json);
-        })
-    },[selectedCategory])
-    return <div className='products'> {products.map((product) => (
-        <Product product={product} key = {product.id}/>
-    ))}
+    // useEffect(()=>{
+    //     setLoading(true);
+    //     fetch(`https://fakestoreapi.com/products/category/${selectedCategory}`)
+    //         .then(res=>res.json())
+    //         .then(json=>{
+    //             console.log(json);
+    //             setProducts(json);
+    //             setLoading(false);
+    //     })
+    // },[selectedCategory])
+
+    const {data , loading , loadError} = useApi(`https://fakestoreapi.com/products/category/${selectedCategory}`)
+
+    if(loading) return <div className="loading"> Fetching Products...</div>
+    return <div className='products'> 
+        {data.map((product) => (
+            <Product product={product} key = {product.id}/>
+        ))}
     </div>
 
 }
