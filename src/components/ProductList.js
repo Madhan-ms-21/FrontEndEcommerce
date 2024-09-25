@@ -1,3 +1,5 @@
+import Product from "./Product";
+
 const ProductList = () =>{
 
     const products = [{
@@ -37,10 +39,7 @@ const ProductList = () =>{
         }
     }]
     return <div className='products'> {products.map((product) => (
-        <div className = 'product' key = {product.id}> 
-            <img src = {product.image} alt = "product image" className='image'/>
-            <div> {product.title} </div>
-        </div>
+        <Product product={product} key = {product.id}/>
     ))}
     </div>
 
