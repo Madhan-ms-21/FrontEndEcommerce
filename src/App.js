@@ -7,11 +7,16 @@ import { Routes, Route } from "react-router-dom";
 import NotFound from './components/NotFound';
 import ProductShow from './components/ProductShow';
 
+import CartContextProvider from './context/Cart';
+
 function App() {
   const [selectedCategory,setSelectedCategory] = useState("electronics");
+
+
   return (
     
     <div className="App">
+      <CartContextProvider>
         <Header 
           selectedCategory={selectedCategory} 
           setSelectedCategory = {setSelectedCategory}/>
@@ -30,7 +35,7 @@ function App() {
           <Route path="*" element = {<NotFound />} />
 
         </Routes>
-
+        </CartContextProvider>
     </div>
     
   );

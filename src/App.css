@@ -158,3 +158,8 @@
   justify-content: center;
   background-color: #fff;
 }
+
+.add-to-cart-container {
+  display: flex;
+  align-items: center;
+}

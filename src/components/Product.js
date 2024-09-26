@@ -9,7 +9,7 @@ const Product = ({product})=>{
     const handleClick = () => {
         navigate(`/products/${product.id}`)
     }
-
+    
     return (
     <div onClick={handleClick}
         className = 'product' key = {product.id}> 
