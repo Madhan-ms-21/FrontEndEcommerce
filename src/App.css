@@ -19,6 +19,10 @@
   cursor: pointer;
 }
 
+.header-items a{
+  text-decoration: none;
+  text-transform: capitalize;
+}
 .header-item-selected {
   color: blueviolet;
   font-weight: bold;

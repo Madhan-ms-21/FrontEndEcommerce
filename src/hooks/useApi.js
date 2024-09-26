@@ -8,6 +8,7 @@ const useApi = (url) => {
 
     useEffect(()=>{
         setLoading(true);
+        setLoadError(null)
         fetch(url)
         .then(res => res.json())
         .then(json => {

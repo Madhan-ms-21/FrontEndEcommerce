@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import Product from "./Product";
 import useApi from "../hooks/useApi";
-const ProductList = ({selectedCategory}) =>{
+import { useParams } from "react-router-dom";
+const ProductList = ({defaultselectedCategory}) =>{
 
     // const productslist = [{
     //     "id": 1,
@@ -40,6 +41,8 @@ const ProductList = ({selectedCategory}) =>{
     //     }
     // }]
 
+    const {category} = useParams();
+    const selectedCategory = category || defaultselectedCategory
     const [products,setProducts] = useState([]);
     // const [loading,setLoading] = useState(false);
 
@@ -53,6 +56,8 @@ const ProductList = ({selectedCategory}) =>{
     //             setLoading(false);
     //     })
     // },[selectedCategory])
+
+    console.log(category)
 
     const {data , loading , loadError} = useApi(`https://fakestoreapi.com/products/category/${selectedCategory}`)
 

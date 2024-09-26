@@ -1,5 +1,6 @@
 // import {useEffect , useState} from 'react'
 import useApi from '../hooks/useApi';
+import { Link } from 'react-router-dom';
 
 const Header = ({selectedCategory,setSelectedCategory}) =>{
 
@@ -25,7 +26,8 @@ const Header = ({selectedCategory,setSelectedCategory}) =>{
     return (
         <div className="header-items">
         {data.map((catgeory) => (
-          <div
+          <Link
+            to={`categories/${catgeory}`}
             className={
               "header-item " +
               (catgeory === selectedCategory ? "header-item-selected" : "")
@@ -34,7 +36,7 @@ const Header = ({selectedCategory,setSelectedCategory}) =>{
             key={catgeory}
           >
             {catgeory}
-          </div>
+          </Link>
         ))}
       </div>)
 
