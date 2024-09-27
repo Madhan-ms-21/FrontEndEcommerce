@@ -6,8 +6,10 @@ import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import NotFound from './components/NotFound';
 import ProductShow from './components/ProductShow';
-
+import {Provider} from 'react-redux'
 import CartContextProvider from './context/Cart';
+import store from './store';
+
 
 function App() {
   const [selectedCategory,setSelectedCategory] = useState("electronics");
@@ -16,26 +18,28 @@ function App() {
   return (
     
     <div className="App">
-      <CartContextProvider>
-        <Header 
-          selectedCategory={selectedCategory} 
-          setSelectedCategory = {setSelectedCategory}/>
-        <Routes>
-          <Route
-              path="/"
-                  element={[
-                    <ProductList defaultselectedCategory = {selectedCategory}/>
-              ]}>
-          </Route>
-          <Route path='/categories/:category' 
-                  element = {<ProductList defaultselectedCategory = {selectedCategory}/>} />
+      <Provider store={store}>
+        <CartContextProvider>
+          <Header 
+            selectedCategory={selectedCategory} 
+            setSelectedCategory = {setSelectedCategory}/>
+          <Routes>
+            <Route
+                path="/"
+                    element={[
+                      <ProductList defaultselectedCategory = {selectedCategory}/>
+                ]}>
+            </Route>
+            <Route path='/categories/:category' 
+                    element = {<ProductList defaultselectedCategory = {selectedCategory}/>} />
 
-          
-          <Route path='/products/:productId' element = {<ProductShow/>} />
-          <Route path="*" element = {<NotFound />} />
+            
+            <Route path='/products/:productId' element = {<ProductShow/>} />
+            <Route path="*" element = {<NotFound />} />
 
-        </Routes>
-        </CartContextProvider>
+          </Routes>
+          </CartContextProvider>
+        </Provider>
     </div>
     
   );

@@ -4,6 +4,7 @@ import useApi from '../hooks/useApi';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import { useSelector } from 'react-redux';
 
 const Header = ({selectedCategory,setSelectedCategory}) =>{
 
@@ -23,7 +24,9 @@ const Header = ({selectedCategory,setSelectedCategory}) =>{
     const {data , loading , loadError} = useApi('https://fakestoreapi.com/products/categories')
     console.log()
 
-    const {cart} = useCartContext();
+    // const {cart} = useCartContext();
+    const cart = useSelector(state => state.cart)
+    console.log('cart value from redux' , cart)
 
     const totalItems = () => {
       let total = 0;
