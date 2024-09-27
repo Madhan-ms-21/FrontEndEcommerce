@@ -58,7 +58,10 @@ Why is Redux Useful?
 ### Making a Progressive Web App
 
 Link: 
-https://web.dev/learn/css/
-https://react.dev/reference/react/Component#setstate
-https://react.dev/reference/react/Component#setstate
-https://mui.com/
+- https://web.dev/learn/css/
+- https://react.dev/reference/react/Component#setstate
+- https://react.dev/reference/react/Component#setstate
+- https://mui.com/
+- https://www.youtube.com/playlist?list=PLZlA0Gpn_vH8DWL14Wud_m8NeNNbYKOkj
+- https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd
+- https://www.youtube.com/playlist?list=PLKhlp2qtUcSYQojD5G-ElgHezoCyq2Hgo
