@@ -2,6 +2,10 @@ import { useEffect, useState } from "react";
 import Product from "./Product";
 import useApi from "../hooks/useApi";
 import { useParams } from "react-router-dom";
+import { loadProducts } from "../store/productList";
+import { useDispatch , useSelector} from "react-redux";
+
+
 const ProductList = ({defaultselectedCategory}) =>{
 
     // const productslist = [{
@@ -57,9 +61,17 @@ const ProductList = ({defaultselectedCategory}) =>{
     //     })
     // },[selectedCategory])
 
-    console.log(category)
+    console.log(category);
 
-    const {data , loading , loadError} = useApi(`https://fakestoreapi.com/products/category/${selectedCategory}`)
+    const { loading, data, loadError } = useSelector(
+        (state) => state.productList
+      );
+
+    // const {data , loading , loadError} = useApi(`https://fakestoreapi.com/products/category/${selectedCategory}`)
+    const dispatch = useDispatch();
+    useEffect(()=>{
+        dispatch(loadProducts(selectedCategory))
+    },[selectedCategory])
 
     if(loading) return <div className="loading"> Fetching Products...</div>
     return <div className='products'> 
