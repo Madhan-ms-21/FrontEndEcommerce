@@ -19,20 +19,20 @@ We have used fake store Api products as a datasource for the products
 
 
 ## Learn More
-What is Redux?
-Redux is a predictable state management library for JavaScript applications, often used with libraries like React. It provides a centralized store to manage the state of your application, making it easier to understand and debug.
+What is Redux?  
+* Redux is a predictable state management library for JavaScript applications, often used with libraries like React. It provides a centralized store to manage the state of your application, making it easier to understand and debug.
 
 
-Core Concepts
-Store: The single source of truth that holds the application's state. The store is immutable, meaning you cannot change its state directly.
++ Core Concepts  
+* Store: The single source of truth that holds the application's state. The store is immutable, meaning you cannot change its state directly.
 
-Actions: Plain JavaScript objects that describe what happened in the application. Each action must have a type property that indicates the action's type.
+* Actions: Plain JavaScript objects that describe what happened in the application. Each action must have a type property that indicates the action's type.
 
-Reducers: Pure functions that take the current state and an action as arguments and return a new state. They define how the state changes in response to actions.
+* Reducers: Pure functions that take the current state and an action as arguments and return a new state. They define how the state changes in response to actions.
 
-Dispatch: The process of sending actions to the store. This tells Redux that an event has occurred, prompting the store to update.
+* Dispatch: The process of sending actions to the store. This tells Redux that an event has occurred, prompting the store to update.
 
-Selectors: Functions that extract specific pieces of state from the store.
+* Selectors: Functions that extract specific pieces of state from the store.
 
 
 Why is Redux Useful?
