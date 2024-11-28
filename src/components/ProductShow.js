@@ -7,7 +7,7 @@ import AddToCart from "./AddtoCart";
 const ProductShow = () => {
   const { productId } = useParams();
   const { data } = useApi(`https://fakestoreapi.com/products/${productId}`);
-
+  console.log("product in Product show" , data)
   return (
     <div className="product-show" key={data.id}>
       <img src={data.image} alt={data.title} className="imgage" />

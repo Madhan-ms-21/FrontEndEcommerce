@@ -20,23 +20,28 @@ function App() {
     <div className="App">
       <Provider store={store}>
         <CartContextProvider>
-          <Header 
+          {/* <Header 
             selectedCategory={selectedCategory} 
-            setSelectedCategory = {setSelectedCategory}/>
+            setSelectedCategory = {setSelectedCategory}/> */}
           <Routes>
             <Route
-                path="/"
-                    element={[
-                      <ProductList defaultselectedCategory = {selectedCategory}/>
-                ]}>
+              path="/"
+              element={[
+                <Header
+                selectedCategory={selectedCategory}
+                setSelectedCategory={setSelectedCategory}
+                />,
+                <ProductList />
+              ]}>
+              
+              <Route path='/categories/:category' 
+                      element = {[
+                        <ProductList defaultselectedCategory = {selectedCategory}/>]} />
+
+              
+              <Route path='/products/:productId' element = {<ProductShow/>} />
+              <Route path="*" element = {<NotFound />} />
             </Route>
-            <Route path='/categories/:category' 
-                    element = {<ProductList defaultselectedCategory = {selectedCategory}/>} />
-
-            
-            <Route path='/products/:productId' element = {<ProductShow/>} />
-            <Route path="*" element = {<NotFound />} />
-
           </Routes>
           </CartContextProvider>
         </Provider>

@@ -5,12 +5,13 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { useSelector } from 'react-redux';
-
-const Header = ({selectedCategory,setSelectedCategory}) =>{
-
-    // const [categories,setCategories] = useState([]);
+import { setSelectedCategory } from '../store/header';
+import { useDispatch } from 'react-redux';
+const Header = () =>{
 
     // const categories = ["electronics" , 'jewelery' , 'mens clothing' , 'womens clothing']
+
+    // const [categories,setCategories] = useState([]);
 
     // useEffect(() => {
     //     fetch(`https://fakestoreapi.com/products/categories`)
@@ -22,10 +23,12 @@ const Header = ({selectedCategory,setSelectedCategory}) =>{
     // }, []);
 
     const {data , loading , loadError} = useApi('https://fakestoreapi.com/products/categories')
-    console.log()
 
-    // const {cart} = useCartContext();
+    const {selectedCategory} = useSelector( (state) => state.header)
     const cart = useSelector(state => state.cart)
+    const dispatch = useDispatch();
+    // const {cart} = useCartContext();
+    
     console.log('cart value from redux' , cart)
 
     const totalItems = () => {

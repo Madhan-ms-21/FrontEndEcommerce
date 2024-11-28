@@ -5,8 +5,8 @@ import { useParams } from "react-router-dom";
 import { loadProducts } from "../store/productList";
 import { useDispatch , useSelector} from "react-redux";
 
-
-const ProductList = ({defaultselectedCategory}) =>{
+import { setSelectedCategory } from "../store/header"
+const ProductList = () =>{
 
     // const productslist = [{
     //     "id": 1,
@@ -46,8 +46,8 @@ const ProductList = ({defaultselectedCategory}) =>{
     // }]
 
     const {category} = useParams();
-    const selectedCategory = category || defaultselectedCategory
-    const [products,setProducts] = useState([]);
+    const categoryval = category || 'jewelery'
+    // const [products,setProducts] = useState([]);
     // const [loading,setLoading] = useState(false);
 
     // useEffect(()=>{
@@ -62,16 +62,23 @@ const ProductList = ({defaultselectedCategory}) =>{
     // },[selectedCategory])
 
     console.log(category);
-
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(loadProducts(categoryval));
+        dispatch(setSelectedCategory(categoryval));
+    }, [categoryval, dispatch]);
+    
     const { loading, data, loadError } = useSelector(
         (state) => state.productList
-      );
+    );
+
+    console.log("data in comp", data);
 
     // const {data , loading , loadError} = useApi(`https://fakestoreapi.com/products/category/${selectedCategory}`)
-    const dispatch = useDispatch();
-    useEffect(()=>{
-        dispatch(loadProducts(selectedCategory))
-    },[selectedCategory])
+    
+    // useEffect(()=>{
+    //     dispatch(loadProducts(selectedCategory))
+    // },[selectedCategory])
 
     if(loading) return <div className="loading"> Fetching Products...</div>
     return <div className='products'> 

@@ -65,3 +65,6 @@ Link:
 - https://www.youtube.com/playlist?list=PLZlA0Gpn_vH8DWL14Wud_m8NeNNbYKOkj
 - https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd
 - https://www.youtube.com/playlist?list=PLKhlp2qtUcSYQojD5G-ElgHezoCyq2Hgo
+- https://blog.webdevsimplified.com/2022-07/react-router/
+- https://notability.com/n/1U_~8qKX_A58t7D0xKouVq
+- https://www.creative-tim.com/twcomponents/cheatsheet
